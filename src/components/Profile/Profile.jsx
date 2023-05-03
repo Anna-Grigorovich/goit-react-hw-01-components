@@ -1,15 +1,15 @@
 import css from './Profile.module.css';
 import PropTypes from 'prop-types';
 
-export const Profile = ({
-  userProfile: {
+export const Profile = (
+  {
     username,
     tag,
     location,
     avatar,
     stats: { followers, views, likes },
   },
-}) => {
+) => {
   return (
     <div className={css.profile}>
       <div className={css.description}>
@@ -37,7 +37,7 @@ export const Profile = ({
   );
 };
 
-Profile.prototype = {
+Profile.propTypes = {
   username: PropTypes.string.isRequired,
   tag: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
@@ -46,5 +46,5 @@ Profile.prototype = {
     followers: PropTypes.number,
     views: PropTypes.number,
     likes: PropTypes.number,
-  }),
+  }).isRequired,
 };
